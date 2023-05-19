@@ -2,31 +2,29 @@ package com.yedam;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.domain.Employee;
 import com.yedam.persistence.EmpDAO;
 
-@WebServlet("/empList")
-public class EmpListServlet extends HttpServlet{
-	
+public class FirstControl implements Control {
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//req : 요청정보,  resp : 응답정보
+	public void exec(HttpServletRequest req, HttpServletResponse resp) {
+		System.out.println("fistcontrol 실행.");
+		
+		
+		//empList 
 		resp.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
+		PrintWriter out = null;
+		try {
+			out = resp.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		EmpDAO dao = new EmpDAO();
 		List<Employee> list = dao.getEmpList();
@@ -43,8 +41,5 @@ public class EmpListServlet extends HttpServlet{
 					
 					out.print("</tbody>");
 					out.print("</table>");
-				}
-	public static void main(String[] args) {
-		
 	}
 }

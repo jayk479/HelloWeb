@@ -2,12 +2,16 @@ package com.yedam.domain;
 
 public class Employee {
 	
-	private int employeeId; // employee_id
-	private String firstName; // first_name
-	private String lastName; // last_name
+	
+	private int employeeId;
+	private String firstName;
+	private String lastName;
 	private String email;
 	private String jobId;
 	private String hireDate;
+	
+	
+	
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -46,8 +50,9 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", jobId=" + jobId + ", hireDate=" + hireDate + "]";
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
+	
 	
 }
